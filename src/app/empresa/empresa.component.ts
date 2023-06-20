@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { EmpresaService } from '../empresa.service';
 import { empresa } from './empresa';
 
@@ -45,5 +46,12 @@ export class EmpresaComponent implements OnInit {
       }
     )
   }
+  remove(empresa: empresa): void {
+    this.empresaService.remove(empresa).subscribe({
+      next: () => this.loadEmpresa()
+    })
+  }
 }
+
+
 
