@@ -1,0 +1,42 @@
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th class="d-flex justify-content-end" scope="col">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <tr *ngFor="let empresa of empresa">
+            <th scope="row"> {{empresa.id}}</th>
+            <td>{{empresa.name}}</td>
+            <td>{{empresa.email}}</td>
+            
+            <!--<td class="d-flex justify-content-end">
+                <button class="btn btn-danger me-1" click="remove empresa">Excluir</button>
+            </td>-->
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-3 m-auto">
+        <form [formGroup]="formGroupClient">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome: </label>
+                <input type="text" formControlName="name" class="form-control" id="nome" placeholder="Nome">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Email: </label>
+                <input type="text" formControlName="email" class="form-control" id="email" placeholder="Email">
+            </div>
+           <div class="mb-3 d-flex justify-content-end">
+                <button class="btn btn-primary" (click)="save()">Salvar</button> 
+            </div>
+        </form>
+    </div>
+</div>
